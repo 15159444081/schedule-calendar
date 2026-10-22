@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>日程</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="bar">
+  <div class="bar-left">
+    <span class="brand">日程</span>
+    <button class="icon" id="btn-prev" title="上一页">‹</button>
+    <h1 id="title">—</h1>
+    <button class="icon" id="btn-next" title="下一页">›</button>
+    <button class="ghost" id="btn-today">今天</button>
+  </div>
+  <div class="bar-right">
+    <div class="searchbox">
+      <input id="search" type="search" placeholder="搜索 / 跳转日期" autocomplete="off">
+      <div class="results" id="results" hidden></div>
+    </div>
+    <div class="switch" id="view-switch">
+      <button data-view="month">月</button>
+      <button data-view="week">周</button>
+      <button data-view="day">日</button>
+    </div>
+    <span class="status" id="status"></span>
+    <button class="ghost" id="btn-phone">手机</button>
+  </div>
+</header>
+
+<main id="main"></main>
+
+<aside class="modal" id="modal" hidden>
+  <div class="modal-box">
+    <div class="modal-head">
+      <span id="modal-title">新建日程</span>
+      <button class="icon" id="btn-close">×</button>
+    </div>
+    <label class="row"><span>标题</span><input id="ev-title" placeholder="做什么"></label>
+    <label class="row"><span>开始</span><input id="ev-start" type="time"></label>
+    <label class="row"><span>结束</span><input id="ev-end" type="time"></label>
+    <label class="row"><span>标签</span><input id="ev-tags" placeholder="空格分隔，如 学习 家教"></label>
+    <label class="row check"><input id="ev-allday" type="checkbox"><span>全天</span></label>
+    <div class="modal-foot">
+      <button class="danger" id="btn-del">删除</button>
+      <div class="spacer"></div>
+      <button class="ghost" id="btn-cancel">取消</button>
+      <button class="primary" id="btn-save">保存</button>
+    </div>
+  </div>
+</aside>
+
+<aside class="modal" id="phone-panel" hidden>
+  <div class="modal-box">
+    <div class="modal-head">
+      <span>手机访问</span>
+      <button class="icon" id="btn-phone-close">×</button>
+    </div>
+    <p class="hint">手机连同一个 WiFi，浏览器打开：</p>
+    <div class="url" id="phone-url">—</div>
+    <p class="hint" id="phone-note"></p>
+    <div class="modal-foot">
+      <div class="spacer"></div>
+      <button class="primary" id="btn-copy">复制地址</button>
+    </div>
+  </div>
+</aside>
+
+<script src="app.js"></script>
+</body>
+</html>
