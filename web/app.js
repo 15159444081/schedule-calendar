@@ -424,7 +424,7 @@ async function showPhone() {
     const j = await (await fetch('/api/ping', { cache: 'no-store' })).json();
     $('#phone-url').textContent = `http://${j.lan}:${j.port}`;
     $('#phone-note').textContent =
-      '用户名 15159444081，密码见程序目录 auth.json。手机和电脑必须连同一个 WiFi。';
+      '首次访问要用用户名和密码（在程序目录 auth.json 里）。手机和电脑必须连同一个 WiFi。';
     $('#phone-panel').hidden = false;
   } catch (e) {
     alert('读不到服务地址，确认服务还在跑');
